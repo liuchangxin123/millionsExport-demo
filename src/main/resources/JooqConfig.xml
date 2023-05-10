@@ -39,7 +39,7 @@
 
         <target>
             <!--生成代码文件的包名及放置目录-->
-            <packageName>com.pluto.millionsExport.data</packageName>
+            <packageName>com.pluto.millionsExport.jooqData</packageName>
             <directory>src/main/java</directory>
         </target>
     </generator>
