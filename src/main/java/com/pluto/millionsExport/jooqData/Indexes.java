@@ -4,20 +4,6 @@
 package com.pluto.millionsExport.jooqData;
 
 
-import com.pluto.millionsExport.jooqData.tables.BondAmount;
-import com.pluto.millionsExport.jooqData.tables.BondBalanceChange;
-import com.pluto.millionsExport.jooqData.tables.BondSizeChg;
-import com.pluto.millionsExport.jooqData.tables.BondTicker;
-import com.pluto.millionsExport.jooqData.tables.PatientMedicalRecord;
-import com.pluto.millionsExport.jooqData.tables.TBondunicodeMapping;
-import com.pluto.millionsExport.jooqData.tables.TestCreated;
-import com.pluto.millionsExport.jooqData.tables.TrackingRecord;
-
-import org.jooq.Index;
-import org.jooq.OrderField;
-import org.jooq.impl.Internal;
-
-
 /**
  * A class modelling indexes of tables of the <code>learn</code> schema.
  */
@@ -28,45 +14,12 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
-    public static final Index BOND_AMOUNT_IDX_BOND_UNI_CODE = Indexes0.BOND_AMOUNT_IDX_BOND_UNI_CODE;
-    public static final Index BOND_BALANCE_CHANGE_IDX_BOND_UNI_CODE = Indexes0.BOND_BALANCE_CHANGE_IDX_BOND_UNI_CODE;
-    public static final Index BOND_SIZE_CHG_IDX_BOND_SIZE_CHG1 = Indexes0.BOND_SIZE_CHG_IDX_BOND_SIZE_CHG1;
-    public static final Index BOND_TICKER_IDX_BOND_TICKER1 = Indexes0.BOND_TICKER_IDX_BOND_TICKER1;
-    public static final Index BOND_TICKER_IDX_BOND_TICKER2 = Indexes0.BOND_TICKER_IDX_BOND_TICKER2;
-    public static final Index PATIENT_MEDICAL_RECORD_IDX_PATIENT_MEDICAL_TYPE = Indexes0.PATIENT_MEDICAL_RECORD_IDX_PATIENT_MEDICAL_TYPE;
-    public static final Index PATIENT_MEDICAL_RECORD_IDX_PATIENT_TYPE_PMR = Indexes0.PATIENT_MEDICAL_RECORD_IDX_PATIENT_TYPE_PMR;
-    public static final Index PATIENT_MEDICAL_RECORD_IDX_PWO = Indexes0.PATIENT_MEDICAL_RECORD_IDX_PWO;
-    public static final Index PATIENT_MEDICAL_RECORD_IDX_TEMPLATE = Indexes0.PATIENT_MEDICAL_RECORD_IDX_TEMPLATE;
-    public static final Index T_BONDUNICODE_MAPPING_BOND_CODE = Indexes0.T_BONDUNICODE_MAPPING_BOND_CODE;
-    public static final Index T_BONDUNICODE_MAPPING_BOND_FULL_NAME = Indexes0.T_BONDUNICODE_MAPPING_BOND_FULL_NAME;
-    public static final Index T_BONDUNICODE_MAPPING_BOND_SHORT_NAME = Indexes0.T_BONDUNICODE_MAPPING_BOND_SHORT_NAME;
-    public static final Index T_BONDUNICODE_MAPPING_IDX_CCXE_CODE = Indexes0.T_BONDUNICODE_MAPPING_IDX_CCXE_CODE;
-    public static final Index T_BONDUNICODE_MAPPING_IDX_CH_BOND_UNI_CODE = Indexes0.T_BONDUNICODE_MAPPING_IDX_CH_BOND_UNI_CODE;
-    public static final Index T_BONDUNICODE_MAPPING_IDX_TL_BOND_UNI_CODE = Indexes0.T_BONDUNICODE_MAPPING_IDX_TL_BOND_UNI_CODE;
-    public static final Index TEST_CREATED_IDX_CREATED_TIME = Indexes0.TEST_CREATED_IDX_CREATED_TIME;
-    public static final Index TRACKING_RECORD_IDX_CREATE_TIME = Indexes0.TRACKING_RECORD_IDX_CREATE_TIME;
 
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
     // -------------------------------------------------------------------------
 
     private static class Indexes0 {
-        public static Index BOND_AMOUNT_IDX_BOND_UNI_CODE = Internal.createIndex("idx_bond_uni_code", BondAmount.BOND_AMOUNT, new OrderField[] { BondAmount.BOND_AMOUNT.BOND_UNI_CODE }, false);
-        public static Index BOND_BALANCE_CHANGE_IDX_BOND_UNI_CODE = Internal.createIndex("idx_bond_uni_code", BondBalanceChange.BOND_BALANCE_CHANGE, new OrderField[] { BondBalanceChange.BOND_BALANCE_CHANGE.BOND_UNI_CODE }, false);
-        public static Index BOND_SIZE_CHG_IDX_BOND_SIZE_CHG1 = Internal.createIndex("idx_bond_size_chg1", BondSizeChg.BOND_SIZE_CHG, new OrderField[] { BondSizeChg.BOND_SIZE_CHG.BOND_ID, BondSizeChg.BOND_SIZE_CHG.CHANGE_DATE }, false);
-        public static Index BOND_TICKER_IDX_BOND_TICKER1 = Internal.createIndex("idx_bond_ticker1", BondTicker.BOND_TICKER, new OrderField[] { BondTicker.BOND_TICKER.BOND_ID }, false);
-        public static Index BOND_TICKER_IDX_BOND_TICKER2 = Internal.createIndex("idx_bond_ticker2", BondTicker.BOND_TICKER, new OrderField[] { BondTicker.BOND_TICKER.SECURITY_ID }, false);
-        public static Index PATIENT_MEDICAL_RECORD_IDX_PATIENT_MEDICAL_TYPE = Internal.createIndex("idx_patient_medical_type", PatientMedicalRecord.PATIENT_MEDICAL_RECORD, new OrderField[] { PatientMedicalRecord.PATIENT_MEDICAL_RECORD.PATIENT_ID, PatientMedicalRecord.PATIENT_MEDICAL_RECORD.MEDICAL_TYPE, PatientMedicalRecord.PATIENT_MEDICAL_RECORD.PARSE_TEMPLATE_NAME }, false);
-        public static Index PATIENT_MEDICAL_RECORD_IDX_PATIENT_TYPE_PMR = Internal.createIndex("idx_patient_type_pmr", PatientMedicalRecord.PATIENT_MEDICAL_RECORD, new OrderField[] { PatientMedicalRecord.PATIENT_MEDICAL_RECORD.PATIENT_ID, PatientMedicalRecord.PATIENT_MEDICAL_RECORD.PATIENT_MEDICAL_TYPE, PatientMedicalRecord.PATIENT_MEDICAL_RECORD.DELETED }, false);
-        public static Index PATIENT_MEDICAL_RECORD_IDX_PWO = Internal.createIndex("idx_pwo", PatientMedicalRecord.PATIENT_MEDICAL_RECORD, new OrderField[] { PatientMedicalRecord.PATIENT_MEDICAL_RECORD.DELETED, PatientMedicalRecord.PATIENT_MEDICAL_RECORD.PWO_ID }, false);
-        public static Index PATIENT_MEDICAL_RECORD_IDX_TEMPLATE = Internal.createIndex("idx_template", PatientMedicalRecord.PATIENT_MEDICAL_RECORD, new OrderField[] { PatientMedicalRecord.PATIENT_MEDICAL_RECORD.PARSE_TEMPLATE_NAME, PatientMedicalRecord.PATIENT_MEDICAL_RECORD.MEDICAL_TYPE, PatientMedicalRecord.PATIENT_MEDICAL_RECORD.CREATE_BY }, false);
-        public static Index T_BONDUNICODE_MAPPING_BOND_CODE = Internal.createIndex("bond_code", TBondunicodeMapping.T_BONDUNICODE_MAPPING, new OrderField[] { TBondunicodeMapping.T_BONDUNICODE_MAPPING.BOND_CODE }, false);
-        public static Index T_BONDUNICODE_MAPPING_BOND_FULL_NAME = Internal.createIndex("bond_full_name", TBondunicodeMapping.T_BONDUNICODE_MAPPING, new OrderField[] { TBondunicodeMapping.T_BONDUNICODE_MAPPING.BOND_FULL_NAME }, false);
-        public static Index T_BONDUNICODE_MAPPING_BOND_SHORT_NAME = Internal.createIndex("bond_short_name", TBondunicodeMapping.T_BONDUNICODE_MAPPING, new OrderField[] { TBondunicodeMapping.T_BONDUNICODE_MAPPING.BOND_SHORT_NAME }, false);
-        public static Index T_BONDUNICODE_MAPPING_IDX_CCXE_CODE = Internal.createIndex("idx_ccxe_code", TBondunicodeMapping.T_BONDUNICODE_MAPPING, new OrderField[] { TBondunicodeMapping.T_BONDUNICODE_MAPPING.CCXE_BOND_UNI_CODE }, false);
-        public static Index T_BONDUNICODE_MAPPING_IDX_CH_BOND_UNI_CODE = Internal.createIndex("idx_ch_bond_uni_code", TBondunicodeMapping.T_BONDUNICODE_MAPPING, new OrderField[] { TBondunicodeMapping.T_BONDUNICODE_MAPPING.CH_BOND_UNI_CODE }, false);
-        public static Index T_BONDUNICODE_MAPPING_IDX_TL_BOND_UNI_CODE = Internal.createIndex("idx_tl_bond_uni_code", TBondunicodeMapping.T_BONDUNICODE_MAPPING, new OrderField[] { TBondunicodeMapping.T_BONDUNICODE_MAPPING.TL_BOND_UNI_CODE }, false);
-        public static Index TEST_CREATED_IDX_CREATED_TIME = Internal.createIndex("idx_created_time", TestCreated.TEST_CREATED, new OrderField[] { TestCreated.TEST_CREATED.CREATED_TIME }, false);
-        public static Index TRACKING_RECORD_IDX_CREATE_TIME = Internal.createIndex("idx_create_time", TrackingRecord.TRACKING_RECORD, new OrderField[] { TrackingRecord.TRACKING_RECORD.CREATE_TIME }, false);
+
     }
 }
